@@ -13,7 +13,7 @@
 
 	function ajax_load_posts(){
 		$numberposts = get_option('posts_per_page');
-		$wp_query = new WP_Query(array('type' => 'posts', 'offset' => $numberposts*$_GET['compteur'], 'posts_per_page' => '2'));
+		$wp_query = new WP_Query(array('post_type' => 'post', 'offset' => $numberposts*$_GET['compteur'], 'posts_per_page' => '2'));
 		
 		header("Content-Type: text/json");
 		die(json_encode($wp_query));
